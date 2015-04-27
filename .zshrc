@@ -60,7 +60,7 @@ kterm*|xterm*|)
   ;;  
 esac
 
-alias ls='ls --color=auto -F'
+#alias ls='ls --color=auto -F'
 alias tmux='tmux -2'
 alias la='ls -al'
 alias ll='ls -l'
