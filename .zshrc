@@ -84,6 +84,7 @@ alias t='tmux'
 alias tl='tmux ls'
 alias ta='tmux a -t'
 alias clear2="echo -e '\026\033c'"
+alias go='gnome-open'
 
 export EDITOR='nano'
 unset SSH_ASKPASS
