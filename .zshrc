@@ -53,7 +53,7 @@ alias rlwrap='rlwrap '
 
 ### Title (user@hostname) ###
 case "${TERM}" in
-kterm*|xterm*|)
+kterm*|xterm*)
   precmd() {
     echo -ne "\033]0;${USER}@${HOST%%.*}\007"
   }
@@ -89,3 +89,5 @@ alias go='gnome-open'
 export EDITOR='nano'
 unset SSH_ASKPASS
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
