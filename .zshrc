@@ -6,8 +6,15 @@ setopt HIST_IGNORE_DUPS
 #autoload -U promptinit
 #promptinit
 autoload -U colors && colors
-PROMPT="[$fg_bold[red]%n$fg_bold[magenta]@$fg_bold[magenta]%m$reset_color] [$fg_bold[green]%~$reset_color]
+
+PROMPT="[$fg_bold[red]%n$fg_bold[magenta]@$fg_bold[magenta]%m$reset_color] $fg[green](^_^%)$reset_color [$fg_bold[green]%~$reset_color]
+$ "
+
+precmd(){
+    PROMPT="[$fg_bold[red]%n$fg_bold[magenta]@$fg_bold[magenta]%m$reset_color] %(?.$fg[green](^_^%)$reset_color.$fg[red](;_;%)%?$reset_color) [$fg_bold[green]%~$reset_color]
 $ " 
+}
+
 
 # ディレクトリ名だけでcdする
 setopt auto_cd 
@@ -95,4 +102,4 @@ which rbenv > /dev/null
 if [ $? = 0 ]; then
     eval "$(rbenv init -)"
 fi
-. "/home/kazakami/.acme.sh/acme.sh.env"
+#. "/home/kazakami/.acme.sh/acme.sh.env"
