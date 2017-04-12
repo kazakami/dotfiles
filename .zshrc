@@ -90,4 +90,9 @@ export EDITOR='nano'
 unset SSH_ASKPASS
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+which rbenv > /dev/null
+if [ $? = 0 ]; then
+    eval "$(rbenv init -)"
+fi
+. "/home/kazakami/.acme.sh/acme.sh.env"
