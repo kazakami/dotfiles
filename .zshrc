@@ -7,14 +7,18 @@ setopt HIST_IGNORE_DUPS
 #promptinit
 autoload -U colors && colors
 
-PROMPT="[$fg_bold[red]%n$fg_bold[magenta]@$fg_bold[magenta]%m$reset_color] $fg[green](^_^%)$reset_color [$fg_bold[green]%~$reset_color]
+PROMPT="[$fg_bold[red]%n$fg_bold[magenta]@$fg_bold[magenta]%m$reset_color] $fg[blue](^_^%)$reset_color [$fg_bold[green]%~$reset_color]
 $ "
 
-precmd(){
+#コマンドライン返り値を顔文字で表示する関数
+prmpt(){
     PROMPT="[$fg_bold[red]%n$fg_bold[magenta]@$fg_bold[magenta]%m$reset_color] %(?.$fg[green](^_^%)$reset_color.$fg[red](;_;%)%?$reset_color) [$fg_bold[green]%~$reset_color]
 $ " 
 }
 
+#上の関数がprecmdで呼ばれるように登録
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd prmpt
 
 # ディレクトリ名だけでcdする
 setopt auto_cd 
